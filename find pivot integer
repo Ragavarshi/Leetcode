@@ -1,0 +1,27 @@
+class Solution {
+    public int pivotInteger(int n) {
+        if(n==1){
+            return n;
+        }
+        int leftvalue =1 ;
+        int rightvalue = n;
+        int sumleft = leftvalue;
+        int sumright = rightvalue;
+
+        while(leftvalue < rightvalue){
+            if(sumleft < sumright){
+                leftvalue++;
+                sumleft += leftvalue;
+            }
+            else{
+                rightvalue--;
+                sumright += rightvalue;
+            }
+            if(sumleft == sumright && leftvalue+1 == rightvalue-1){
+                return leftvalue+1;
+            }
+
+        }
+        return -1;
+    }
+}
